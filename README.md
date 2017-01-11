@@ -9,16 +9,19 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
 
 ## Installation
 
-BHResting is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+To install this application in its current state, follow these steps:
 
-```ruby
-pod "BHResting"
-```
+1. Clone the repo with `git clone https://github.com/Vilyan01/BHResting.git`.
+2. Point your `Podfile` in your project to the repo by adding: `pod 'BHResting', :path => 'path/to/clone/BHResting.podspec'`
+`
+3. Run `pod install` on your project.
+
+## Contributing
+
+Feel free to fork the repo and create any pull requests for features you would like to see. Alternatively, create issues and I will see what I can do about them.
 
 ## Author
 
