@@ -4,46 +4,22 @@ import Quick
 import Nimble
 import BHResting
 
-class TableOfContentsSpec: QuickSpec {
+class BHRestingSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
+        describe("BHRestManager") {
+            it("Can set the base URL of the shared manager.") {
+                BHRestManager.shared().setBaseUri(uri: "http://www.localhost:3000/")
+                expect(BHRestManager.shared().baseUri()) == "http://www.localhost:3000/"
             }
             
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
+            it("Can set additional path components to the URI") {
+                BHRestManager.shared().setAdditionalPathComponents(components: ["api","v1"])
+                expect(BHRestManager.shared().fullUri()) == "http://www.localhost:3000/api/v1/"
+            }
+            
+            it("Can set additional headers") {
+                BHRestManager.shared().addAdditionalHeader(header: ["Accept":"application/json"])
+                expect(BHRestManager.shared().additionalHeaders()?.count) == 1
             }
         }
     }
