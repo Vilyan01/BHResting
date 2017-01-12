@@ -18,7 +18,7 @@ class BHRestingSpec: QuickSpec {
             }
             
             it("Can set additional headers") {
-                BHRestManager.shared().addAdditionalHeader(header: ["Accept":"application/json"])
+                BHRestManager.shared().addAdditionalHeader(header: ["Content-Type":"application/json"])
                 expect(BHRestManager.shared().additionalHeaders()?.count) == 1
             }
         }
