@@ -12,8 +12,9 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6E264E3AB429C5458E7CE4BF /* Pods_BHResting_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561EAE46F7AC92637D466606 /* Pods_BHResting_Example.framework */; };
+		88DE13111E284AD2003C822C /* BHResting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE13101E284AD2003C822C /* BHResting.framework */; };
+		88DE13131E284B75003C822C /* BHRestManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE13121E284B75003C822C /* BHRestManagerSpec.swift */; };
 		9D3E38EA309CA11E8895A6AF /* Pods_BHResting_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5C6F4E86497EE580CC551A /* Pods_BHResting_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,8 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* BHResting_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BHResting_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		88DE13101E284AD2003C822C /* BHResting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BHResting.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BHResting-dhhyxycsvtkvuvcoktzuqlxkiigf/Build/Products/Debug-iphonesimulator/BHResting/BHResting.framework"; sourceTree = "<group>"; };
+		88DE13121E284B75003C822C /* BHRestManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHRestManagerSpec.swift; sourceTree = "<group>"; };
 		97556EC42FDE1F2E47A8B476 /* BHResting.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BHResting.podspec; path = ../BHResting.podspec; sourceTree = "<group>"; };
 		B6E98C2570806DCDD656AD72 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B889042FE2B172F182FA9E64 /* Pods-BHResting_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BHResting_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BHResting_Example/Pods-BHResting_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DE13111E284AD2003C822C /* BHResting.framework in Frameworks */,
 				9D3E38EA309CA11E8895A6AF /* Pods_BHResting_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +86,7 @@
 		1D7A1666CC51730A779CBA15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88DE13101E284AD2003C822C /* BHResting.framework */,
 				561EAE46F7AC92637D466606 /* Pods_BHResting_Example.framework */,
 				DB5C6F4E86497EE580CC551A /* Pods_BHResting_Tests.framework */,
 			);
@@ -135,8 +139,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				88DE13121E284B75003C822C /* BHRestManagerSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -370,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				88DE13131E284B75003C822C /* BHRestManagerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +532,7 @@
 			baseConfigurationReference = 1E0888B4ECCA353CC06AEFB0 /* Pods-BHResting_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -540,6 +545,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -549,6 +555,7 @@
 			baseConfigurationReference = 4D792E37821BAD4062C81C9E /* Pods-BHResting_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
