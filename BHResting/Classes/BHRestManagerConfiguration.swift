@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class BHRestManagerConfiguration {
+internal class BHRestManagerConfiguration {
     private var baseUri:String?
     private var additionalComponents:[String]?
     private var additionalHeaders:[[String:String]]?
