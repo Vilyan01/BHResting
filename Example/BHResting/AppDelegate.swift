@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BHResting
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Set the base URI for the application.
+        BHRestManager.shared().setBaseUri(uri: "http://localhost:3000/")
+        
         return true
     }
 
