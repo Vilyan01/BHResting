@@ -17,27 +17,27 @@ internal class BHRestManagerConfiguration {
         additionalHeaders = [[String:String]]()
     }
     
-    public func setBaseUri(base:String) {
+    internal func setBaseUri(base:String) {
         baseUri = base
     }
     
-    public func getBaseUri() -> String? {
+    internal func getBaseUri() -> String? {
         return baseUri
     }
     
-    public func setAdditionalComponents(components:[String]) {
+    internal func setAdditionalComponents(components:[String]) {
         additionalComponents = components
     }
     
-    public func getAdditionalComponents() -> [String]? {
+    internal func getAdditionalComponents() -> [String]? {
         return additionalComponents
     }
     
-    public func addAdditionalHeader(headers:[String:String]) {
+    internal func addAdditionalHeader(headers:[String:String]) {
         additionalHeaders?.append(headers)
     }
     
-    public func getAdditionalHeaders() -> [[String:String]]? {
+    internal func getAdditionalHeaders() -> [[String:String]]? {
         return additionalHeaders
     }
 }
