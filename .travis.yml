@@ -11,5 +11,6 @@ language: objective-c
 # - pod install --project-directory=Example
 script:
 - cd Example && pod install
+- cd ..
 - set -o pipefail && xcodebuild test -workspace Example/BHResting.xcworkspace -scheme BHResting-Example -destination 'platform=iOS Simulator,id=DB794781-65A7-4884-8D00-AAC3CBD39A44,OS=10.2'
 - pod lib lint
