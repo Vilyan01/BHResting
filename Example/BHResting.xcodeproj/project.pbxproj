@@ -15,6 +15,7 @@
 		6E264E3AB429C5458E7CE4BF /* Pods_BHResting_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561EAE46F7AC92637D466606 /* Pods_BHResting_Example.framework */; };
 		88DE13111E284AD2003C822C /* BHResting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE13101E284AD2003C822C /* BHResting.framework */; };
 		88DE13131E284B75003C822C /* BHRestManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE13121E284B75003C822C /* BHRestManagerSpec.swift */; };
+		88DE131E1E2B07AA003C822C /* BHRestModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE131D1E2B07AA003C822C /* BHRestModelSpec.swift */; };
 		9D3E38EA309CA11E8895A6AF /* Pods_BHResting_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5C6F4E86497EE580CC551A /* Pods_BHResting_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88DE13101E284AD2003C822C /* BHResting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BHResting.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BHResting-dhhyxycsvtkvuvcoktzuqlxkiigf/Build/Products/Debug-iphonesimulator/BHResting/BHResting.framework"; sourceTree = "<group>"; };
 		88DE13121E284B75003C822C /* BHRestManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHRestManagerSpec.swift; sourceTree = "<group>"; };
+		88DE131D1E2B07AA003C822C /* BHRestModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHRestModelSpec.swift; sourceTree = "<group>"; };
 		97556EC42FDE1F2E47A8B476 /* BHResting.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BHResting.podspec; path = ../BHResting.podspec; sourceTree = "<group>"; };
 		B6E98C2570806DCDD656AD72 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B889042FE2B172F182FA9E64 /* Pods-BHResting_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BHResting_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BHResting_Example/Pods-BHResting_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,11 +119,10 @@
 		607FACD21AFB9204008FA782 /* Example for BHResting */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				8865F2811E300D2C00DFB4BA /* app */,
+				8865F2801E300D2700DFB4BA /* controllers */,
+				8865F27F1E300D2300DFB4BA /* views */,
+				8865F27E1E300D1B00DFB4BA /* models */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for BHResting";
@@ -141,6 +142,7 @@
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				88DE13121E284B75003C822C /* BHRestManagerSpec.swift */,
+				88DE131D1E2B07AA003C822C /* BHRestModelSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -161,6 +163,39 @@
 				E6D3C901E43F8E64B4E4E510 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8865F27E1E300D1B00DFB4BA /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		8865F27F1E300D2300DFB4BA /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		8865F2801E300D2700DFB4BA /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		8865F2811E300D2C00DFB4BA /* app */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DE131E1E2B07AA003C822C /* BHRestModelSpec.swift in Sources */,
 				88DE13131E284B75003C822C /* BHRestManagerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
