@@ -26,6 +26,10 @@ class Ox: BHRestModel {
     
 }
 
+class Knife: BHRestModel {
+    
+}
+
 class BHRestModelSpec: QuickSpec {
     override func spec() {
         describe("Creating a model") { 
@@ -41,6 +45,9 @@ class BHRestModelSpec: QuickSpec {
                 
                 let ox = Ox()
                 expect(ox.path) == "oxen"
+                
+                let knife = Knife()
+                expect(knife.path) == "knives"
             }
         }
         
