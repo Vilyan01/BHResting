@@ -6,12 +6,21 @@
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
+import Foundation
 import Quick
 import Nimble
 @testable import BHResting
 
 class Book : BHRestModel {
+    private var title:String?
+    private var author:String?
     
+    init(title:String?, author:String?) {
+        self.title = title
+        self.author = author
+        
+        super.init()
+    }
 }
 
 class Property: BHRestModel {
@@ -32,9 +41,9 @@ class Knife: BHRestModel {
 
 class BHRestModelSpec: QuickSpec {
     override func spec() {
+        let book = Book(title: "A Series of Unfortunate Events", author: "Daniel Handler")
         describe("Creating a model") { 
             it("has a path that is a plural, lower cased form of its class name") {
-                let book = Book()
                 expect(book.path) == "books"
                 
                 let property = Property()
@@ -51,14 +60,28 @@ class BHRestModelSpec: QuickSpec {
             }
         }
         
+        describe("Converting a model to json") {
+            it("Converts user defined attributes to a model") {
+                let dict = ["book": ["title":"A Series of Unfortunate Events", "author":"Daniel Handler"]]
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+                    let json = book.toJSON()
+                    expect(json!) == data
+                }
+                catch let error {
+                    print(error)
+                }
+            }
+        }
+        
         describe("Saving a model") {
-            
         }
         
         describe("Getting a model") {
         }
         
         describe("Getting all models") {
+            expect(Book.all()) == true
         }
         
         describe("Deleting a model") {
