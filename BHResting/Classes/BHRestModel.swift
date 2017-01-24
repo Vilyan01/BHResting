@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias ArrayCompletion = (_ results:[BHRestModel?], _ error:Error?) -> Void
+
 open class BHRestModel {
     internal var path:String?
     internal var jsonProperties:[String]?
@@ -17,24 +19,9 @@ open class BHRestModel {
         self.path = String(describing: type(of: self)).lowercased().pluralize()
     }
     
-    public func create() -> Bool {
-        return true
-    }
-    
-    public static func find(id:Int) -> BHRestModel {
-        return BHRestModel()
-    }
-    
-    public static func all() -> Bool {
-        return true
-    }
-    
-    public func delete() -> Bool {
-        return true
-    }
-    
-    public func update() -> Bool {
-        return true
+    public func all(completion:ArrayCompletion) {
+        // build URL for the object
+        
     }
     
     /*

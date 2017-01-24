@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		6E264E3AB429C5458E7CE4BF /* Pods_BHResting_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561EAE46F7AC92637D466606 /* Pods_BHResting_Example.framework */; };
+		8865F2BF1E37DF5100DFB4BA /* BHURLBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865F2BE1E37DF5100DFB4BA /* BHURLBuilderSpec.swift */; };
 		88DE13111E284AD2003C822C /* BHResting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE13101E284AD2003C822C /* BHResting.framework */; };
 		88DE13131E284B75003C822C /* BHRestManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE13121E284B75003C822C /* BHRestManagerSpec.swift */; };
 		88DE131E1E2B07AA003C822C /* BHRestModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE131D1E2B07AA003C822C /* BHRestModelSpec.swift */; };
@@ -42,6 +43,7 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* BHResting_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BHResting_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8865F2BE1E37DF5100DFB4BA /* BHURLBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHURLBuilderSpec.swift; sourceTree = "<group>"; };
 		88DE13101E284AD2003C822C /* BHResting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BHResting.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/BHResting-dhhyxycsvtkvuvcoktzuqlxkiigf/Build/Products/Debug-iphonesimulator/BHResting/BHResting.framework"; sourceTree = "<group>"; };
 		88DE13121E284B75003C822C /* BHRestManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHRestManagerSpec.swift; sourceTree = "<group>"; };
 		88DE131D1E2B07AA003C822C /* BHRestModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHRestModelSpec.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				88DE13121E284B75003C822C /* BHRestManagerSpec.swift */,
+				8865F2BE1E37DF5100DFB4BA /* BHURLBuilderSpec.swift */,
 				88DE131D1E2B07AA003C822C /* BHRestModelSpec.swift */,
 			);
 			path = Tests;
@@ -411,6 +414,7 @@
 			files = (
 				88DE131E1E2B07AA003C822C /* BHRestModelSpec.swift in Sources */,
 				88DE13131E284B75003C822C /* BHRestManagerSpec.swift in Sources */,
+				8865F2BF1E37DF5100DFB4BA /* BHURLBuilderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,12 +12,14 @@ import Nimble
 @testable import BHResting
 
 class Book : BHRestModel {
+    private var id:Int?
     private var title:String?
     private var author:String?
     
     init(title:String?, author:String?) {
         self.title = title
         self.author = author
+        self.id = 1
         
         super.init()
     }
@@ -62,7 +64,7 @@ class BHRestModelSpec: QuickSpec {
         
         describe("Converting a model to json") {
             it("Converts user defined attributes to a model") {
-                let dict = ["book": ["title":"A Series of Unfortunate Events", "author":"Daniel Handler"]]
+                let dict = ["book": ["id": 1, "title":"A Series of Unfortunate Events", "author":"Daniel Handler"]]
                 do {
                     let data = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
                     let json = book.toJSON()
@@ -81,7 +83,6 @@ class BHRestModelSpec: QuickSpec {
         }
         
         describe("Getting all models") {
-            expect(Book.all()) == true
         }
         
         describe("Deleting a model") {
