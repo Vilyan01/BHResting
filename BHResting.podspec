@@ -23,5 +23,6 @@ This project's intention is to allow users to extend a class which contains basi
 
   s.source_files = 'BHResting/Classes/**/*'
 
+  s.dependency 'EVReflection'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

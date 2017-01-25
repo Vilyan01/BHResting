@@ -12,9 +12,13 @@ import Nimble
 @testable import BHResting
 
 class Book : BHRestModel {
-    private var id:Int?
-    private var title:String?
-    private var author:String?
+    var id:Int?
+    var title:String?
+    var author:String?
+    
+    override init() {
+        super.init()
+    }
     
     init(title:String?, author:String?) {
         self.title = title
@@ -73,6 +77,18 @@ class BHRestModelSpec: QuickSpec {
                 catch let error {
                     print(error)
                 }
+            }
+        }
+        
+        describe("Converting JSON to a model") {
+            it("converts attributes from a dict from json response to a model") {
+                let dict = ["book": ["id": 1, "title":"A Series of Unfortunate Events", "author":"Daniel Handler"]]
+                let data = try! JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
+                let book = Book()
+                Book.setProperties(data: data, object: book, objectKey: "book")
+                // This is mostly experimental for now to figure out how to do this. It will later be incorporated into a constructor or something.
+                expect(book.title) == "A Series of Unfortunate Events"
+                expect(book.author) == "Daniel Handler"
             }
         }
         

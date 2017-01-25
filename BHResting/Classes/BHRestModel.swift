@@ -7,21 +7,25 @@
 //
 
 import Foundation
+import EVReflection
 
-typealias ArrayCompletion = (_ results:[BHRestModel?], _ error:Error?) -> Void
+typealias ArrayCompletion = (_ results:[Any]?, _ error:Error?) -> Void
 
 open class BHRestModel {
     internal var path:String?
-    internal var jsonProperties:[String]?
-    
-    
+
     public init() {
         self.path = String(describing: type(of: self)).lowercased().pluralize()
     }
     
+    public init(data: Data) {
+        self.path = String(describing: type(of: self)).lowercased().pluralize()
+        BHRestModel.setProperties(data: data, object: self)
+    }
+
     public func all(completion:ArrayCompletion) {
         // build URL for the object
-        
+        let path = BHURLBuilder.indexUrlForObject(model: self)!
     }
     
     /*
@@ -29,29 +33,35 @@ open class BHRestModel {
      { "book" : {"title" : "A Book", "author" : "an author" } }
     */
     internal func toJSON() -> Data? {
-        // check to see if the class has been configured yet
         var data:Data?
         var dict = [String:Any]()
+        let wrapper = String(describing: type(of: self)).lowercased()
         
-        // Get the class name of the object for the JSON payload.
-        let base = String(describing: type(of: self)).lowercased()
-        
-        // Use the reflecting library to copy attributes into a dict
         let mirror = Mirror(reflecting: self)
-        for case let (label?, value) in mirror.children {
-            dict[label] = value
+        for (label, value) in mirror.children {
+            dict[label!] = value
         }
         
-        // create wrapper dict
-        let wrapper = [base : dict]
-        
-        // convert the dict into JSON
+        let outer = [wrapper : dict]
         do {
-            data = try JSONSerialization.data(withJSONObject: wrapper, options: .prettyPrinted)
-        }
-        catch let error {
-            print("Caught error")
+            data = try JSONSerialization.data(withJSONObject: outer, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
         }
         return data
+    }
+    
+    internal static func setProperties<T>(data: Data, object: T, objectKey:String? = nil) {
+        do {
+            let dict = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSDictionary
+            let properties = ((objectKey == nil) ? dict : dict[objectKey]) as! NSDictionary
+            for (key, value) in properties {
+                print(key)
+                print(value)
+            }
+        }
+        catch let error {
+            print("Encountered an error setting properties: \(error.localizedDescription)")
+        }
     }
 }
