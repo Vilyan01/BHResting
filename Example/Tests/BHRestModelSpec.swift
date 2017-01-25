@@ -86,8 +86,6 @@ class BHRestModelSpec: QuickSpec {
                 let data = try! JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
         
                 let book = Book(data: data)
-                //Book.setProperties(data: data, object: book, objectKey: "book")
-                // This is mostly experimental for now to figure out how to do this. It will later be incorporated into a constructor or something.
                 expect(book.title) == "A Series of Unfortunate Events"
                 expect(book.author) == "Daniel Handler"
             }

@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import AFNetworking
 
 public class BHRestManager {
     private static var sharedManager:BHRestManager!
     
     private var configuration:BHRestManagerConfiguration!
+    internal var httpManager:AFURLSessionManager!
     
     /*
      A shared manager we will use throughout the library. This must be configured in the AppDelegate's didFinishLaunchingWithOptions method.
@@ -26,6 +28,9 @@ public class BHRestManager {
     init() {
         // Create a new configuration object that can be used in the future.
         configuration = BHRestManagerConfiguration()
+        // just use default config for now.
+        let sessionConfig = URLSessionConfiguration.default
+        httpManager = AFURLSessionManager(sessionConfiguration: sessionConfig)
     }
     /*
      Set the base URI for the server communication.

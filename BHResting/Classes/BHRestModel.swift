@@ -9,7 +9,7 @@
 import Foundation
 import EVReflection
 
-typealias ArrayCompletion = (_ results:[Any]?, _ error:Error?) -> Void
+public typealias ArrayCompletion = (_ results:[Any]?, _ error:Error?) -> Void
 
 open class BHRestModel : EVObject {
     internal var path:String?
@@ -22,9 +22,27 @@ open class BHRestModel : EVObject {
         self.init(data: data, conversionOptions: .PropertyMapping, forKeyPath: keyPath)
         self.path = keyPath.pluralize()
     }
-    public func all(completion:ArrayCompletion) {
+    public convenience init(fromDictionary: NSDictionary) {
+        self.init(dictionary: fromDictionary)
+        self.path = String(describing: type(of: self)).lowercased().pluralize()
+    }
+    public func all(completion:@escaping ArrayCompletion) {
         // build URL for the object
         let path = BHURLBuilder.indexUrlForObject(model: self)!
+        let request = URLRequest(url: path)
+        let afrequest = BHRestManager.shared().httpManager.dataTask(with: request) { (response, collection, error) in
+            if error != nil {
+                print("error doing a thing")
+                return
+            }
+            let sc = (response as! HTTPURLResponse).statusCode
+            if sc != 200 {
+                print("Unexpected status code: \(sc)")
+                return
+            }
+            completion(collection as? [Any], error)
+        }
+        afrequest.resume()
     }
     
     /*
