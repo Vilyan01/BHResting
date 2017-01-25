@@ -16,7 +16,7 @@ class Book : BHRestModel {
     var title:String?
     var author:String?
     
-    override init() {
+    required init() {
         super.init()
     }
     
@@ -82,10 +82,11 @@ class BHRestModelSpec: QuickSpec {
         
         describe("Converting JSON to a model") {
             it("converts attributes from a dict from json response to a model") {
-                let dict = ["book": ["id": 1, "title":"A Series of Unfortunate Events", "author":"Daniel Handler"]]
+                let dict = ["id": 1, "title":"A Series of Unfortunate Events", "author":"Daniel Handler"] as [String : Any]
                 let data = try! JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
-                let book = Book()
-                Book.setProperties(data: data, object: book, objectKey: "book")
+        
+                let book = Book(data: data)
+                //Book.setProperties(data: data, object: book, objectKey: "book")
                 // This is mostly experimental for now to figure out how to do this. It will later be incorporated into a constructor or something.
                 expect(book.title) == "A Series of Unfortunate Events"
                 expect(book.author) == "Daniel Handler"

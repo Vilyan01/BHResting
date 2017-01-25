@@ -11,18 +11,17 @@ import EVReflection
 
 typealias ArrayCompletion = (_ results:[Any]?, _ error:Error?) -> Void
 
-open class BHRestModel {
+open class BHRestModel : EVObject {
     internal var path:String?
 
-    public init() {
+    public required init() {
         self.path = String(describing: type(of: self)).lowercased().pluralize()
     }
-    
-    public init(data: Data) {
-        self.path = String(describing: type(of: self)).lowercased().pluralize()
-        BHRestModel.setProperties(data: data, object: self)
+    public convenience init(data: Data) {
+        let keyPath = String(describing: type(of: self)).lowercased()
+        self.init(data: data, conversionOptions: .PropertyMapping, forKeyPath: keyPath)
+        self.path = keyPath.pluralize()
     }
-
     public func all(completion:ArrayCompletion) {
         // build URL for the object
         let path = BHURLBuilder.indexUrlForObject(model: self)!
