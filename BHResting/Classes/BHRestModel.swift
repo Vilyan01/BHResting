@@ -67,18 +67,4 @@ open class BHRestModel : EVObject {
         }
         return data
     }
-    
-    internal static func setProperties<T>(data: Data, object: T, objectKey:String? = nil) {
-        do {
-            let dict = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSDictionary
-            let properties = ((objectKey == nil) ? dict : dict[objectKey]) as! NSDictionary
-            for (key, value) in properties {
-                print(key)
-                print(value)
-            }
-        }
-        catch let error {
-            print("Encountered an error setting properties: \(error.localizedDescription)")
-        }
-    }
 }
